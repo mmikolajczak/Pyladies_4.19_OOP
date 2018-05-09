@@ -4,7 +4,7 @@ Jest ona klasą abstrakcyjną , którą należy odpowiednio nadpisać/zaimplemen
 Przeanalizuj ją, a następnie stwórz podklasę BirthdayWishesSender, która korzystając z obiektu Person
 będzie generować życzenia urodzinowe w następującym formacie:
 
-Drog[a lub i] imię,
+Drog[a lub i] name,
 spóźnione wszystkiego najlepszego z okazji twoich age urodzin.
 
 i wysyłać je na podany adres email.

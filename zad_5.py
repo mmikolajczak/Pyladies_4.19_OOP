@@ -1,11 +1,13 @@
 '''
 Wykorzystaj poniższą klasę Book i dane w postaci słownika (uspołecznione z kodu autorstwa Jana Śliskiego,
-z ostatnich zajęć w celu stworzenia klasy BookStore, za pomocą którego będzie można nimi zarządzać.
+z ostatnich zajęć) w celu stworzenia klasy BookStore, za pomocą którego będzie można nimi zarządzać.
 Niech nasza księgarnia posiada następujące metody:
 - sell_book, sprzedającą pojedynczą książkę, przyjmującą autora i tytuł książki, oraz odpowiednio modyfikującą stan magazynu
 - make_prommotion, która przemnaża ceny książek w księgarni przez podany ułamek, odpowiednio je obniżając z
 okazji promocji
 - is_available, która sprawdza czy podana para tytuł/autor znajduje się w księgarni i jest aktualnie dostępna
+(przydatna może być też możliwość wydrukowania na ekranie całego asortymentu księgarni, aby móc sprawdzić
+poprawność działania)
 '''
 
 
