@@ -52,7 +52,8 @@ BOOKS_LIST = [  # lista słowników, zawierających dane o książkach na podsta
 
 class BookStore:
 
-    def __init__(self, books):  # inicjalizujemy księgarnie, listą obiektów typu Book
+    def __init__(self, books):  # inicjalizujemy księgarnie, listą obiektów typu Book, którymi będzie ona zarządzać
+                                # (jest to typowy przykład agregacji)
         self.books = books
 
     def __str__(self):  # reprezentacja tekstowa księgarni - wypisujemy po prostu w kolejnych liniach informacje o kolejnych
