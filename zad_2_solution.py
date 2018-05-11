@@ -40,7 +40,8 @@ class Square(Rectangle):  # kolejne dziedzicznie, tym razem z klasy rectangle - 
                                               # poprawnie
 
 
-class Circle(Shape):
+class Circle(Shape):  # Kolejna klasa będąca pochodną kształtu, wraz z odpowiednio przeciążonymi metodami
+                      # (wykorzystujemy w nich stałą pi z zaimportowanego modułu wbudowanego math)
 
     def __init__(self, radius):
         self.radius = radius

@@ -38,6 +38,7 @@ class FuelSource(metaclass=ABCMeta):
     def get_fuel(self, units):
         pass
 
+    @abstractmethod
     def refill(self, units):
         pass
 
@@ -48,10 +49,11 @@ class GasFuelSource(FuelSource):
         self._units = initial_units
 
     def get_fuel(self, units):
-        if units < self._units:
+        if units <= self._units:
             self._units -= units
             return ('gas', units)
         else:
+            self._units = 0
             return ('gas', self._units)
 
     def refill(self, units):
@@ -60,7 +62,7 @@ class GasFuelSource(FuelSource):
 
 class RoadCounter:
 
-    def report_traveled_distance(self, distance): # właściwie może to być metoda klasy bądź statyczna, bez użycia self
+    def report_traveled_distance(self, distance):
         print(f'Traveled {distance} km.')
 
 
