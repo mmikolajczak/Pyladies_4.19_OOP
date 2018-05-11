@@ -1,17 +1,3 @@
-'''
-4.1.
-W pliku zad_4.py znajdują się różne klasy, z użyciem których modelowany jest samochód.
-Przeanalizuj, jak działa klasa Car (jakie atrybuty posiada posiada, które z nich są obiektami i jak się komunikują).
-Spróbuj uruchomić kod w pliku i zlokalizuj/popraw ewentualne błędy jeśli się pojawią.
-
-4.2.
-Podczas pracy samochodu, jeden ze znajdujących się w nim obiektów "raportuje" przejechany dystans w kilometrach.
-Jednak nie w każdym kraju dystans podaje się w kilometrach - niektóre wykorzystują mile (1 mila=1.61 kilometra).
-Zaimplementuj klasę, która będzie odpowiadała za "raportowanie" dystansu, ale tym razem właśnie w tej jednostce.
-(wskazówka: spójrz jeszcze raz na działanie klasy Car, i jakie właściwości muszą spełniać obiekty które ona zawiera)
-'''
-
-
 from abc import ABCMeta, abstractmethod
 
 
@@ -60,8 +46,15 @@ class GasFuelSource(FuelSource):
 
 class RoadCounter:
 
-    def report_traveled_distance(self, distance): # właściwie może to być metoda klasy bądź statyczna, bez użycia self
+    def report_traveled_distance(self, distance):  # właściwie może to być metoda klasy, bez użycia self
         print(f'Traveled {distance} km.')
+
+
+class MilesRoadCounter(RoadCounter):
+
+    def report_traveled_distance(self, distance):
+        distance_in_miles = distance / 1.61
+        print(f'Traveled {round(distance_in_miles, 2)} miles.')
 
 
 class Car:
@@ -79,7 +72,7 @@ class Car:
         self._road_counter.report_traveled_distance(kilometers_traveled)
 
 
-old_engine = Engine('diesel_fuel', 20)
+old_engine = Engine('gas', 20)
 gas_source = GasFuelSource(50)
 trabancik = Car(old_engine, gas_source, RoadCounter(), 'red')
 
@@ -87,3 +80,12 @@ trabancik = Car(old_engine, gas_source, RoadCounter(), 'red')
 trabancik.ride(100)
 trabancik.ride(100)
 trabancik.ride(1000)
+
+
+params = {'engine': Engine('gas', 5),
+          'fuel_source': GasFuelSource(200),
+          'road_counter': MilesRoadCounter(),
+          'color': 'green'}
+super_trabancik = Car(**params)
+
+super_trabancik.ride(1000)
